@@ -35,49 +35,63 @@
 <body class="bg-background text-dark font-sans leading-relaxed selection:bg-earth selection:text-white">
 
     <nav class="fixed w-full bg-background/90 backdrop-blur-sm z-50 border-b border-gray-200">
-        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="font-mono text-xl font-bold text-primary tracking-tighter">DL.</a>
-            <div class="space-x-6 text-sm font-mono text-gray-600 hidden md:block">
-                <a href="#about" class="hover:text-earth transition-colors">01. ABOUT</a>
-                <a href="#experience" class="hover:text-earth transition-colors">02. EXPERIENCE</a>
-                <a href="#projects" class="hover:text-earth transition-colors">03. PROJECTS</a>
+            <div class="space-x-8 text-sm font-mono text-gray-600 hidden md:block">
+                <a href="#about" class="hover:text-earth transition-colors">ABOUT</a>
+                <a href="#experience" class="hover:text-earth transition-colors">EXPERIENCE</a>
+                <a href="#projects" class="hover:text-earth transition-colors">PROJECTS</a>
+                <a href="#passions" class="hover:text-earth transition-colors">PASSIONS</a>
             </div>
-            <button onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})" class="md:hidden font-mono text-sm text-primary">Contact</button>
+            <button onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})" class="md:hidden font-mono text-sm text-primary">Menu</button>
         </div>
     </nav>
 
-    <section class="min-h-screen flex flex-col justify-center max-w-4xl mx-auto px-6 pt-20">
-        <p class="font-mono text-earth mb-4">Hello, I am</p>
-        <h1 class="text-5xl md:text-7xl font-bold text-primary mb-6 tracking-tight">Daniel Levi.</h1>
-        <h2 class="text-3xl md:text-5xl font-mono text-secondary mb-8">Bridging operations with systems engineering.</h2>
-        <p class="max-w-xl text-gray-600 mb-12 text-lg">
-            I am an Industrial Engineering student at the <span class="text-primary font-semibold">University of Nevada, Reno</span> (Class of 2028). 
-            I specialize in process optimization, lean manufacturing, and turning technical chaos into structured visual systems.
-        <div class="mt-6">
-    <a href="Daniel_Levi_Resume-2.pdf" target="_blank" class="inline-flex items-center font-mono text-sm text-primary hover:text-earth underline decoration-1 underline-offset-4 transition-colors">
-        ↓ Download Full Resume
-    </a>
-</div>
-        </p>
-        
-        <div id="contact-wrapper">
-            <button onclick="revealContact()" id="contact-btn" class="border-2 border-primary text-primary font-mono px-8 py-3 rounded hover:bg-primary hover:text-white transition-all duration-300">
-                Contact Me
-            </button>
-            <div id="contact-info" class="hidden mt-6 bg-white p-6 border-l-4 border-earth shadow-sm max-w-sm animate-fade-in">
-                <p class="font-mono text-sm text-gray-500 mb-2">Connect details:</p>
-                <p class="text-lg font-bold text-primary mb-1">danielaaronlevi@gmail.com</p> <p class="text-lg font-bold text-primary">+1 (949) 689-4369</p> </div>
+    <section id="about" class="min-h-screen flex items-center pt-20">
+        <div class="max-w-5xl mx-auto px-6 w-full flex flex-col-reverse md:flex-row items-center gap-12">
+            
+            <div class="flex-1">
+                <p class="font-mono text-earth mb-4">Hello, I am</p>
+                <h1 class="text-5xl md:text-7xl font-bold text-primary mb-6 tracking-tight">Daniel Levi.</h1>
+                <h2 class="text-2xl md:text-4xl font-mono text-secondary mb-8 leading-tight">Bridging operations with systems engineering.</h2>
+                <p class="max-w-xl text-gray-600 mb-8 text-lg">
+                    I am an Industrial, Manufacturing and Systems Engineering student at the <span class="text-primary font-semibold">University of Nevada, Reno</span> (Class of 2028). 
+                    I specialize in process optimization, lean manufacturing, and creating structured visual systems.
+                </p>
+                
+                <div class="mb-10">
+                    <a href="Daniel_Levi_Resume-2.pdf" target="_blank" class="inline-flex items-center font-mono text-sm text-primary hover:text-earth underline decoration-1 underline-offset-4 transition-colors">
+                        ↓ Download Full Resume
+                    </a>
+                </div>
+
+                <div id="contact-wrapper">
+                    <button onclick="revealContact()" id="contact-btn" class="border-2 border-primary text-primary font-mono px-8 py-3 rounded hover:bg-primary hover:text-white transition-all duration-300">
+                        Contact Me
+                    </button>
+                    <div id="contact-info" class="hidden mt-4 bg-white p-6 border-l-4 border-earth shadow-sm max-w-sm animate-fade-in">
+                        <p class="font-mono text-sm text-gray-500 mb-2">Connect details:</p>
+                        <p class="text-lg font-bold text-primary mb-1">danielaaronlevi@gmail.com</p>
+                        <p class="text-lg font-bold text-primary">+1 (949) 689-4369</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-shrink-0 w-64 md:w-80">
+                <img src="pfp.png" alt="Daniel Levi" class="w-full h-auto object-cover rounded-lg shadow-lg border border-gray-200 grayscale hover:grayscale-0 transition-all duration-500">
+            </div>
         </div>
     </section>
 
-    <section id="experience" class="max-w-4xl mx-auto px-6 py-24">
+    <section id="experience" class="max-w-5xl mx-auto px-6 py-24">
         <h3 class="font-mono text-2xl text-primary mb-12 flex items-center">
-            <span class="text-earth mr-4">02.</span> Experience
+            Experience
             <span class="ml-4 h-px bg-gray-300 flex-grow max-w-xs"></span>
         </h3>
 
-        <div class="space-y-12">
-            <div class="group">
+        <div class="space-y-16">
+            <div class="relative pl-8 border-l-2 border-gray-200 hover:border-earth transition-colors">
+                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-earth"></div>
                 <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
                     <h4 class="text-xl font-bold text-primary">Manufacturing Engineering Intern</h4>
                     <span class="font-mono text-sm text-secondary">May 2025 - Dec 2025</span>
@@ -85,62 +99,93 @@
                 <p class="font-mono text-earth text-sm mb-4">Click Bond Inc. | Carson City, NV</p>
                 <ul class="list-disc list-outside ml-5 space-y-2 text-gray-700 marker:text-earth">
                     <li>Identified critical documentation deficiencies and digitized reference batch settings, saving approximately <span class="font-bold text-primary">~$2,430 annually</span>.</li>
-                    <li>Designed and manufactured custom shop vac nozzles to improve ergonomics and throughput on the assembly line.</li>
-                    <li>Created 10 new work instructions and reworked 4 existing SOPs for various manufacturing processes.</li>
-                    <li>Attended MRB (Material Review Board) meetings, witnessing cross-functional work in dispositioning discrepant material.</li>
+                    <li>Designed and manufactured cutsom tooling to improve ergonomics and throughput on the assembly line.</li>
+                    <li>Created new work instructions to define processes and reworked existing SOPs for various manufacturing assemblies</li>
+                    <li>Attended MRB (Material Review Board) meetings, taking part in cross-functional work in dispositioning discrepant material.</li>
                 </ul>
             </div>
 
-            <div class="group">
+            <div class="relative pl-8 border-l-2 border-gray-200 hover:border-earth transition-colors">
+                <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-300"></div>
                 <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
-                    <h4 class="text-xl font-bold text-primary">Resident Assistant</h4>
-                    <span class="font-mono text-sm text-secondary">Mar 2024 - Dec 2025</span>
+                    <h4 class="text-xl font-bold text-primary">Independent Visual Process Engineer</h4>
+                    <span class="font-mono text-sm text-secondary">Jan 2026 - Present</span>
                 </div>
-                <p class="font-mono text-earth text-sm mb-4">UNR Residential Life</p>
+                <p class="font-mono text-earth text-sm mb-4">Freelance / Remote</p>
+                <p class="text-gray-700 mb-4">
+                    Specialized service converting dense technical assembly documents into clear, visual Standard Operating Procedures (SOPs) for clients.
+                </p>
                 <ul class="list-disc list-outside ml-5 space-y-2 text-gray-700 marker:text-earth">
-                    <li>Served as emergency first response point of contact, utilizing communication and coordination skills in high-pressure situations.</li>
-                    <li>Constructed and upheld a micro-community, motivating residents and executing events.</li>
-                    <li>Submitted daily verbal, written, and digital reports on facility status and resident safety.</li>
+                    <li>Bridging the communication gap between design engineers and assembly technicians using visual storytelling.</li>
+                    <li>Translating complex instructions and technical specs into step-by-step visual guides.</li>
+                    <li>Building a client base for technical documentation services on Fiverr.</li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="max-w-4xl mx-auto px-6 py-24 bg-white/50 rounded-xl my-12">
+    <section id="projects" class="max-w-5xl mx-auto px-6 py-24 bg-white/50 rounded-xl my-12">
         <h3 class="font-mono text-2xl text-primary mb-12 flex items-center">
-            <span class="text-earth mr-4">03.</span> Projects & Freelance
+            Projects
             <span class="ml-4 h-px bg-gray-300 flex-grow max-w-xs"></span>
         </h3>
 
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="bg-background border border-gray-200 p-6 rounded hover:border-earth transition-colors">
-                <div class="font-mono text-xs text-secondary mb-2">FREELANCE</div>
-                <h4 class="text-xl font-bold text-primary mb-3">Visual SOP Conversion</h4>
-                <p class="text-gray-600 text-sm mb-4">
-                    Converting dense technical documents into visual work instructions. Currently building a client base on Fiverr to help manufacturers bridge the gap between engineering and assembly.
-                </p>
-                <div class="flex gap-2 text-xs font-mono text-gray-500">
-                    <span>#TechnicalWriting</span>
-                    <span>#VisualDesign</span>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-background border border-gray-200 p-5 rounded hover:border-earth transition-colors group">
+                <div class="overflow-hidden rounded mb-4 border border-gray-200">
+                    <img src="shop-vac.png" alt="Shop Vac Design" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
+                <h4 class="text-lg font-bold text-primary mb-2">Shop Vac Optimization</h4>
+                <p class="text-gray-600 text-xs mb-3">
+                    Designed a part in SolidWorks to secure a shop vac hose in a way to improve ergonomics and increase table space. Utilized precise calculations for O-ring groove dimensions to ensure a vacuum-tight seal.                </p>
+                <span class="text-xs font-mono text-earth"> ·SolidWorks ·3D Printing</span>
             </div>
 
-            <div class="bg-background border border-gray-200 p-6 rounded hover:border-earth transition-colors">
-                <div class="font-mono text-xs text-secondary mb-2">CAD DESIGN</div>
-                <h4 class="text-xl font-bold text-primary mb-3">Shop Vac Hose Optimization</h4>
-                <img src="shop-vac.png" alt="SolidWorks Shop Vac Design" class="w-full h-48 object-cover rounded mb-4 border border-gray-200">
-                <p class="text-gray-600 text-sm mb-4">
-                    Designed a part in SolidWorks to secure a shop vac hose in a way to improve ergonomics and increase table space. Utilized precise calculations for O-ring groove dimensions to ensure a vacuum-tight seal.
-                </p>
-                <div class="flex gap-2 text-xs font-mono text-gray-500">
-                    <span>#SolidWorks</span>
-                    <span>#3DPrinting</span>
+            <div class="bg-background border border-gray-200 p-5 rounded hover:border-earth transition-colors group">
+                <div class="overflow-hidden rounded mb-4 border border-gray-200">
+                    <img src="press-tool.png" alt="Press Tooling" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
+                <h4 class="text-lg font-bold text-primary mb-2">Custom Press Tooling</h4>
+                <p class="text-gray-600 text-xs mb-3">
+                    Modeled and prototyped custom press tooling to optimize assembly. Digitized reference batch settings to eliminate data loss risks.
+                </p>
+                <span class="text-xs font-mono text-earth">·Automation ·Prototyping</span>
+            </div>
+
+            <div class="bg-background border border-gray-200 p-5 rounded hover:border-earth transition-colors group">
+                <div class="overflow-hidden rounded mb-4 border border-gray-200">
+                    <img src="work-instruction.png" alt="Visual SOPs" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <h4 class="text-lg font-bold text-primary mb-2">Visual SOP Design</h4>
+                <p class="text-gray-600 text-xs mb-3">
+                    My example of a "Before & After" technical document transformations. Converting text-heavy confusing manuals into intuitive visual guides.
+                </p>
+                <span class="text-xs font-mono text-earth">·Technical Writing ·Process Documents</span>
             </div>
         </div>
     </section>
 
-    <footer class="text-center py-8 font-mono text-xs text-gray-400">
+    <section id="passions" class="max-w-5xl mx-auto px-6 py-24">
+        <h3 class="font-mono text-2xl text-primary mb-12 flex items-center">
+            Passions & Travel
+            <span class="ml-4 h-px bg-gray-300 flex-grow max-w-xs"></span>
+        </h3>
+
+        <div class="bg-white border border-gray-200 p-8 rounded-xl text-center shadow-sm">
+            <h4 class="text-xl font-bold text-primary mb-6">The Journeyman</h4>
+            
+            <div class="max-w-2xl mx-auto mb-8 opacity-80 hover:opacity-100 transition-opacity">
+                <img src="world-map.png" alt="World Map of Travels" class="w-full h-auto rounded border border-gray-100">
+            </div>
+
+            <p class="font-mono text-earth text-lg mb-2">Interactive Travel Stats Coming Soon.</p>
+            <p class="text-gray-500 text-sm max-w-lg mx-auto">
+                I am currently building a data visualization of my travels across the US and Europe to showcase my love for culture, logistics, and history! 
+            </p>
+        </div>
+    </section>
+
+    <footer class="text-center py-12 font-mono text-xs text-gray-400 border-t border-gray-200 mt-12">
         <p>Built by Daniel Levi.</p>
     </footer>
 
@@ -148,11 +193,7 @@
         function revealContact() {
             const btn = document.getElementById('contact-btn');
             const info = document.getElementById('contact-info');
-            
-            // Hide the button
             btn.style.display = 'none';
-            
-            // Show the info
             info.classList.remove('hidden');
         }
     </script>
