@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Levi | Industrial Engineering</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        background: '#f9f9f9',
+                        primary: '#2F3E46',   /* Dark Slate/Blue-Green */
+                        secondary: '#52796F', /* Muted Green */
+                        accent: '#84A98C',    /* Sage */
+                        earth: '#D4A373',     /* Soft Brown/Tan */
+                        dark: '#1a1a1a',
+                    },
+                    fontFamily: {
+                        mono: ['"Courier Prime"', 'monospace'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-background text-dark font-sans leading-relaxed selection:bg-earth selection:text-white">
+
+    <nav class="fixed w-full bg-background/90 backdrop-blur-sm z-50 border-b border-gray-200">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="font-mono text-xl font-bold text-primary tracking-tighter">DL.</a>
+            <div class="space-x-6 text-sm font-mono text-gray-600 hidden md:block">
+                <a href="#about" class="hover:text-earth transition-colors">01. ABOUT</a>
+                <a href="#experience" class="hover:text-earth transition-colors">02. EXPERIENCE</a>
+                <a href="#projects" class="hover:text-earth transition-colors">03. PROJECTS</a>
+            </div>
+            <button onclick="document.getElementById('contact-section').scrollIntoView({behavior: 'smooth'})" class="md:hidden font-mono text-sm text-primary">Contact</button>
+        </div>
+    </nav>
+
+    <section class="min-h-screen flex flex-col justify-center max-w-4xl mx-auto px-6 pt-20">
+        <p class="font-mono text-earth mb-4">Hello, I am</p>
+        <h1 class="text-5xl md:text-7xl font-bold text-primary mb-6 tracking-tight">Daniel Levi.</h1>
+        <h2 class="text-3xl md:text-5xl font-mono text-secondary mb-8">Bridging operations with systems engineering.</h2>
+        <p class="max-w-xl text-gray-600 mb-12 text-lg">
+            I am an Industrial Engineering student at the <span class="text-primary font-semibold">University of Nevada, Reno</span> (Class of 2028). 
+            I specialize in process optimization, lean manufacturing, and turning technical chaos into structured visual systems.
+        </p>
+        
+        <div id="contact-wrapper">
+            <button onclick="revealContact()" id="contact-btn" class="border-2 border-primary text-primary font-mono px-8 py-3 rounded hover:bg-primary hover:text-white transition-all duration-300">
+                Contact Me
+            </button>
+            <div id="contact-info" class="hidden mt-6 bg-white p-6 border-l-4 border-earth shadow-sm max-w-sm animate-fade-in">
+                <p class="font-mono text-sm text-gray-500 mb-2">Connect details:</p>
+                <p class="text-lg font-bold text-primary mb-1">daniel.levi@example.com</p> <p class="text-lg font-bold text-primary">+1 (555) 123-4567</p> </div>
+        </div>
+    </section>
+
+    <section id="experience" class="max-w-4xl mx-auto px-6 py-24">
+        <h3 class="font-mono text-2xl text-primary mb-12 flex items-center">
+            <span class="text-earth mr-4">02.</span> Experience
+            <span class="ml-4 h-px bg-gray-300 flex-grow max-w-xs"></span>
+        </h3>
+
+        <div class="space-y-12">
+            <div class="group">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                    <h4 class="text-xl font-bold text-primary">Manufacturing Engineering Intern</h4>
+                    <span class="font-mono text-sm text-secondary">May 2025 - Dec 2025</span>
+                </div>
+                <p class="font-mono text-earth text-sm mb-4">Click Bond Inc. | Carson City, NV</p>
+                <ul class="list-disc list-outside ml-5 space-y-2 text-gray-700 marker:text-earth">
+                    <li>Identified critical documentation deficiencies and digitized reference batch settings, saving approximately <span class="font-bold text-primary">~$2,430 annually</span>.</li>
+                    <li>Designed and manufactured custom shop vac nozzles to improve ergonomics and throughput on the assembly line.</li>
+                    <li>Created 10 new work instructions and reworked 4 existing SOPs for various manufacturing processes.</li>
+                    <li>Attended MRB (Material Review Board) meetings, witnessing cross-functional work in dispositioning discrepant material.</li>
+                </ul>
+            </div>
+
+            <div class="group">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                    <h4 class="text-xl font-bold text-primary">Resident Assistant</h4>
+                    <span class="font-mono text-sm text-secondary">Mar 2024 - Dec 2025</span>
+                </div>
+                <p class="font-mono text-earth text-sm mb-4">UNR Residential Life</p>
+                <ul class="list-disc list-outside ml-5 space-y-2 text-gray-700 marker:text-earth">
+                    <li>Served as emergency first response point of contact, utilizing communication and coordination skills in high-pressure situations.</li>
+                    <li>Constructed and upheld a micro-community, motivating residents and executing events.</li>
+                    <li>Submitted daily verbal, written, or digital reports on facility status and resident safety.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="max-w-4xl mx-auto px-6 py-24 bg-white/50 rounded-xl my-12">
+        <h3 class="font-mono text-2xl text-primary mb-12 flex items-center">
+            <span class="text-earth mr-4">03.</span> Projects & Freelance
+            <span class="ml-4 h-px bg-gray-300 flex-grow max-w-xs"></span>
+        </h3>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-background border border-gray-200 p-6 rounded hover:border-earth transition-colors">
+                <div class="font-mono text-xs text-secondary mb-2">FREELANCE</div>
+                <h4 class="text-xl font-bold text-primary mb-3">Visual SOP Conversion</h4>
+                <p class="text-gray-600 text-sm mb-4">
+                    Converting dense technical documents into visual work instructions. Currently building a client base on Fiverr to help manufacturers bridge the gap between engineering and assembly.
+                </p>
+                <div class="flex gap-2 text-xs font-mono text-gray-500">
+                    <span>#TechnicalWriting</span>
+                    <span>#VisualDesign</span>
+                </div>
+            </div>
+
+            <div class="bg-background border border-gray-200 p-6 rounded hover:border-earth transition-colors">
+                <div class="font-mono text-xs text-secondary mb-2">CAD DESIGN</div>
+                <h4 class="text-xl font-bold text-primary mb-3">Shop Vac Hose Optimization</h4>
+                <p class="text-gray-600 text-sm mb-4">
+                    Designed a SolidWorks part to secure a shop vac hose, involving precise calculations for O-ring groove dimensions to ensure a vacuum-tight seal.
+                </p>
+                <div class="flex gap-2 text-xs font-mono text-gray-500">
+                    <span>#SolidWorks</span>
+                    <span>#3DPrinting</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="text-center py-8 font-mono text-xs text-gray-400">
+        <p>Built by Daniel Levi.</p>
+    </footer>
+
+    <script>
+        function revealContact() {
+            const btn = document.getElementById('contact-btn');
+            const info = document.getElementById('contact-info');
+            
+            // Hide the button
+            btn.style.display = 'none';
+            
+            // Show the info
+            info.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
