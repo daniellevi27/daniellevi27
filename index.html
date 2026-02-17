@@ -80,7 +80,11 @@
                     <div id="contact-info" class="hidden mt-4 bg-white p-6 border-l-4 border-earth shadow-sm max-w-sm animate-fade-in">
                         <p class="font-mono text-sm text-gray-500 mb-2">Connect details:</p>
                         <p class="text-lg font-bold text-primary mb-1">danielaaronlevi@gmail.com</p>
-                        <p class="text-lg font-bold text-primary">+1 (949) 689-4369</p>
+                        <p class="text-lg font-bold text-primary mb-3">+1 (949) 689-4369</p>
+                        
+                        <a href="https://www.linkedin.com/in/daniel-levi27" target="_blank" class="inline-flex items-center text-primary font-bold border-b-2 border-primary/20 hover:border-earth hover:text-earth transition-colors pb-0.5">
+                            LinkedIn Profile ↗
+                        </a>
                     </div>
                 </div>
             </div>
@@ -140,12 +144,15 @@
 
         <div class="grid md:grid-cols-3 gap-8 items-stretch">
             
-            <div class="bg-background border border-gray-200 p-5 rounded hover:border-earth transition-colors group flex flex-col h-full">
-                <div class="overflow-hidden rounded mb-4 border border-gray-200">
+            <div onclick="openLightbox(0)" class="bg-background border border-gray-200 p-5 rounded hover:border-earth transition-colors group flex flex-col h-full cursor-pointer hover:shadow-lg">
+                <div class="overflow-hidden rounded mb-4 border border-gray-200 relative">
                     <img src="shop-vac.png" alt="Shop Vac Design" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                        <span class="opacity-0 group-hover:opacity-100 bg-white/90 text-primary px-3 py-1 rounded font-mono text-xs shadow-sm transition-opacity">Expand ↗</span>
+                    </div>
                 </div>
                 <h4 class="text-lg font-bold text-primary mb-2">Shop Vac Optimization</h4>
-                <p class="text-gray-600 text-xs mb-4 flex-grow">
+                <p class="text-gray-600 text-xs mb-4 flex-grow line-clamp-3">
                     Designed a part in SolidWorks to secure a shop vac hose in a way to improve ergonomics and increase table space. Utilized precise calculations for O-ring groove dimensions to ensure a vacuum-tight seal.
                 </p>
                 <span class="text-xs font-mono text-earth mt-auto pt-4 border-t border-gray-100 block">
@@ -153,12 +160,15 @@
                 </span>
             </div>
 
-            <div class="bg-background border border-gray-200 p-5 rounded hover:border-earth transition-colors group flex flex-col h-full">
-                <div class="overflow-hidden rounded mb-4 border border-gray-200">
+            <div onclick="openLightbox(1)" class="bg-background border border-gray-200 p-5 rounded hover:border-earth transition-colors group flex flex-col h-full cursor-pointer hover:shadow-lg">
+                <div class="overflow-hidden rounded mb-4 border border-gray-200 relative">
                     <img src="press-tool.png" alt="Press Tooling" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                         <span class="opacity-0 group-hover:opacity-100 bg-white/90 text-primary px-3 py-1 rounded font-mono text-xs shadow-sm transition-opacity">Expand ↗</span>
+                    </div>
                 </div>
                 <h4 class="text-lg font-bold text-primary mb-2">Custom Press Tooling</h4>
-                <p class="text-gray-600 text-xs mb-4 flex-grow">
+                <p class="text-gray-600 text-xs mb-4 flex-grow line-clamp-3">
                     Modeled and prototyped custom press tooling to optimize assembly. Digitized reference batch settings to eliminate data loss risks.
                 </p>
                 <span class="text-xs font-mono text-earth mt-auto pt-4 border-t border-gray-100 block">
@@ -166,12 +176,15 @@
                 </span>
             </div>
 
-            <div class="bg-background border border-gray-200 p-5 rounded hover:border-earth transition-colors group flex flex-col h-full">
-                <div class="overflow-hidden rounded mb-4 border border-gray-200">
+            <div onclick="openLightbox(2)" class="bg-background border border-gray-200 p-5 rounded hover:border-earth transition-colors group flex flex-col h-full cursor-pointer hover:shadow-lg">
+                <div class="overflow-hidden rounded mb-4 border border-gray-200 relative">
                     <img src="work-instruction.png" alt="Visual SOPs" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                     <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                         <span class="opacity-0 group-hover:opacity-100 bg-white/90 text-primary px-3 py-1 rounded font-mono text-xs shadow-sm transition-opacity">Expand ↗</span>
+                    </div>
                 </div>
                 <h4 class="text-lg font-bold text-primary mb-2">Visual SOP Design</h4>
-                <p class="text-gray-600 text-xs mb-4 flex-grow">
+                <p class="text-gray-600 text-xs mb-4 flex-grow line-clamp-3">
                     My example of "Before & After" technical document transformations. Converting text-heavy confusing manuals into intuitive visual guides.
                 </p>
                 <span class="text-xs font-mono text-earth mt-auto pt-4 border-t border-gray-100 block">
@@ -205,7 +218,40 @@
         <p>Built by Daniel Levi.</p>
     </footer>
 
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 opacity-0 transition-opacity duration-300">
+        
+        <button onclick="changeProject(-1)" class="absolute left-2 md:left-8 text-white/50 hover:text-white text-5xl md:text-7xl transition-colors z-20 select-none">
+            &#8249;
+        </button>
+        <button onclick="changeProject(1)" class="absolute right-2 md:right-8 text-white/50 hover:text-white text-5xl md:text-7xl transition-colors z-20 select-none">
+            &#8250;
+        </button>
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 md:top-8 md:right-8 text-white/50 hover:text-white text-3xl font-mono z-20">
+            [CLOSE]
+        </button>
+
+        <div class="bg-white w-full max-w-6xl max-h-[90vh] rounded-lg overflow-hidden flex flex-col md:flex-row shadow-2xl relative z-10" onclick="event.stopPropagation()">
+            
+            <div class="md:w-1/3 bg-white p-8 md:p-10 flex flex-col justify-center border-r border-gray-100 order-2 md:order-1 overflow-y-auto">
+                <div id="lb-counter" class="font-mono text-xs text-earth mb-2">01 / 03</div>
+                <h3 id="lb-title" class="text-2xl md:text-3xl font-bold text-primary mb-6">Project Title</h3>
+                <p id="lb-desc" class="text-gray-600 text-sm md:text-base leading-relaxed mb-8">
+                    Description goes here...
+                </p>
+                <div id="lb-tags" class="mt-auto font-mono text-xs text-secondary bg-gray-50 p-3 rounded border border-gray-100 inline-block">
+                    #Tags
+                </div>
+            </div>
+
+            <div class="md:w-2/3 bg-gray-100 flex items-center justify-center order-1 md:order-2 h-[40vh] md:h-auto border-b md:border-b-0 md:border-l border-gray-200 relative group">
+                <img id="lb-img" src="" alt="Project Image" class="w-full h-full object-contain p-4 md:p-8">
+            </div>
+
+        </div>
+    </div>
+
     <script>
+        // --- Contact Logic ---
         function revealContact() {
             const btn = document.getElementById('contact-btn');
             const info = document.getElementById('contact-info');
@@ -215,11 +261,87 @@
 
         function revealAndScrollToContact() {
             const wrapper = document.getElementById('contact-wrapper');
-            // First, reveal the info
             revealContact();
-            // Then scroll to it smoothly
             wrapper.scrollIntoView({behavior: 'smooth', block: 'center'});
         }
+
+        // --- Lightbox Data & Logic ---
+        const projects = [
+            {
+                src: "shop-vac.png",
+                title: "Shop Vac Optimization",
+                desc: "Designed a part in SolidWorks to secure a shop vac hose in a way to improve ergonomics and increase table space. Utilized precise calculations for O-ring groove dimensions to ensure a vacuum-tight seal.",
+                tags: "·SolidWorks ·3D Printing"
+            },
+            {
+                src: "press-tool.png",
+                title: "Custom Press Tooling",
+                desc: "Modeled and prototyped custom press tooling to optimize assembly. Digitized reference batch settings to eliminate data loss risks. This project involved rapid prototyping iterations to ensure fitment.",
+                tags: "·Automation ·Prototyping"
+            },
+            {
+                src: "work-instruction.png",
+                title: "Visual SOP Design",
+                desc: "My example of 'Before & After' technical document transformations. Converting text-heavy confusing manuals into intuitive visual guides using technical illustration techniques.",
+                tags: "·Technical Writing ·Process Documents"
+            }
+        ];
+
+        let currentIndex = 0;
+        const lightbox = document.getElementById('lightbox');
+        const lbImg = document.getElementById('lb-img');
+        const lbTitle = document.getElementById('lb-title');
+        const lbDesc = document.getElementById('lb-desc');
+        const lbTags = document.getElementById('lb-tags');
+        const lbCounter = document.getElementById('lb-counter');
+
+        function openLightbox(index) {
+            currentIndex = index;
+            updateLightbox();
+            lightbox.classList.remove('hidden');
+            // Small delay to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+            }, 300);
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        function changeProject(direction) {
+            currentIndex += direction;
+            if (currentIndex >= projects.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = projects.length - 1;
+            updateLightbox();
+        }
+
+        function updateLightbox() {
+            const p = projects[currentIndex];
+            lbImg.src = p.src;
+            lbTitle.innerText = p.title;
+            lbDesc.innerText = p.desc;
+            lbTags.innerText = p.tags;
+            lbCounter.innerText = `0${currentIndex + 1} / 0${projects.length}`;
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeLightbox();
+            }
+            if (event.key === "ArrowRight") {
+                changeProject(1);
+            }
+            if (event.key === "ArrowLeft") {
+                changeProject(-1);
+            }
+        });
     </script>
 </body>
 </html>
