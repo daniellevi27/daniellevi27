@@ -186,7 +186,7 @@
         </div>
     </section>
 
-<section id="passions" class="max-w-6xl mx-auto px-6 py-24">
+    <section id="passions" class="max-w-6xl mx-auto px-6 py-24">
         <h3 class="font-mono text-2xl text-primary mb-12 flex items-center">
             Passions & Travel
             <span class="ml-4 h-px bg-gray-300 flex-grow max-w-xs"></span>
@@ -269,3 +269,19 @@
             </div>
         </div>
     </div>
+
+    <script src="js/travel-data.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        function revealContact() {
+            document.getElementById('contact-btn').style.display = 'none';
+            document.getElementById('contact-info').classList.remove('hidden');
+        }
+        function revealAndScrollToContact() {
+            revealContact();
+            document.getElementById('contact-wrapper').scrollIntoView({behavior: 'smooth', block: 'center'});
+        }
+    </script>
+</body>
+</html>
