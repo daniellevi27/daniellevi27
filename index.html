@@ -186,57 +186,59 @@
         </div>
     </section>
 
-    <section id="passions" class="max-w-6xl mx-auto px-6 py-24">
+<section id="passions" class="max-w-6xl mx-auto px-6 py-24">
         <h3 class="font-mono text-2xl text-primary mb-12 flex items-center">
             Passions & Travel
             <span class="ml-4 h-px bg-gray-300 flex-grow max-w-xs"></span>
         </h3>
 
-        <div class="bg-white border border-gray-200 p-8 rounded-xl shadow-sm">
-            <h4 class="text-xl font-bold text-primary mb-8 text-center md:text-left">The Journeyman Log</h4>
+        <div class="bg-white border border-gray-200 p-6 md:p-8 rounded-xl shadow-sm">
+            <h4 class="text-xl font-bold text-primary mb-6 text-center md:text-left">The Journeyman Log</h4>
             
-            <div class="flex flex-col lg:flex-row gap-8 items-start">
+            <div class="flex flex-col lg:flex-row gap-6 items-start">
                 
-                <div class="lg:w-3/5 w-full">
-                    <img src="dlworld.png" alt="World Map of Travels" class="w-full h-auto rounded border border-gray-100 shadow-sm">
+                <div class="lg:w-[65%] w-full relative group cursor-pointer" onclick="openMapLightbox()">
+                    <img src="dlworld.png" alt="World Map of Travels" class="w-full h-auto rounded border border-gray-100 shadow-sm transition-transform duration-300 group-hover:shadow-md">
+                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors flex items-center justify-center rounded">
+                         <span class="opacity-0 group-hover:opacity-100 bg-white/90 text-primary px-4 py-2 rounded font-mono text-sm shadow-sm transition-opacity">🔍 Expand Map</span>
+                    </div>
                     <p class="text-gray-400 text-xs mt-3 font-mono text-center">Map highlighting US states and international countries visited.</p>
                 </div>
 
-                <div class="lg:w-2/5 w-full bg-gray-50 border border-gray-200 rounded-lg p-6 max-h-[500px] overflow-y-auto">
+                <div class="lg:w-[35%] w-full bg-gray-50 border border-gray-200 rounded-lg p-4 max-h-[500px] overflow-y-auto">
                     
-                    <div class="mb-6">
-                        <h5 class="font-mono text-sm text-earth font-bold border-b border-gray-200 pb-2 mb-3">EUROPE (WINTER 2026)</h5>
-                        <ul class="space-y-2">
-                            <li><button onclick="openTravelMemory('greece')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Thessaloniki, Greece <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
-                            <li><button onclick="openTravelMemory('pristina')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Pristina, Kosovo <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
-                            <li><button onclick="openTravelMemory('prizren')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Prizren, Kosovo <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
-                            <li><button onclick="openTravelMemory('skopje')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Skopje, North Macedonia <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
-                            <li><button onclick="openTravelMemory('sofia')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Sofia, Bulgaria <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
-                            <li><button onclick="openTravelMemory('tirana')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Tirana, Albania <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
-                            <li><button onclick="openTravelMemory('rome')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Rome, Italy <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
-                            <li><button onclick="openTravelMemory('venice')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Venice, Italy <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
-                            <li><button onclick="openTravelMemory('lyon')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Lyon, France <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
-                            <li><button onclick="openTravelMemory('paris')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Paris, France <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
-                            <li><button onclick="openTravelMemory('landry')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Landry, France <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
-                            <li><button onclick="openTravelMemory('geneva')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Geneva, Switzerland <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                    <div class="mb-5">
+                        <h5 class="font-mono text-xs text-earth font-bold border-b border-gray-200 pb-1 mb-2">EUROPE (WINTER 2026)</h5>
+                        <ul class="space-y-1.5">
+                            <li><button onclick="openTravelMemory('greece')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Thessaloniki, Greece <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('pristina')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Pristina, Kosovo <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('prizren')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Prizren, Kosovo <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('skopje')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Skopje, North Macedonia <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('sofia')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Sofia, Bulgaria <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('tirana')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Tirana, Albania <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('rome')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Rome, Italy <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('venice')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Venice, Italy <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('lyon')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Lyon, France <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('paris')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Paris, France <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('landry')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Landry, France <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('geneva')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Geneva, Switzerland <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
                         </ul>
                     </div>
 
-                    <div class="mb-6">
-                        <h5 class="font-mono text-sm text-earth font-bold border-b border-gray-200 pb-2 mb-3">EUROPE (SUMMER 2013)</h5>
-                        <ul class="space-y-2">
-                            <li><button onclick="openTravelMemory('odessa')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Odessa, Ukraine <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
-                            <li><button onclick="openTravelMemory('kyiv')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Kyiv, Ukraine <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                    <div class="mb-5">
+                        <h5 class="font-mono text-xs text-earth font-bold border-b border-gray-200 pb-1 mb-2">EUROPE (SUMMER 2013)</h5>
+                        <ul class="space-y-1.5">
+                            <li><button onclick="openTravelMemory('odessa')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Odessa, Ukraine <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('kyiv')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Kyiv, Ukraine <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h5 class="font-mono text-sm text-earth font-bold border-b border-gray-200 pb-2 mb-3">NORTH AMERICA</h5>
-                        <ul class="space-y-2">
-                            <li><button onclick="openTravelMemory('usa')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">United States <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                        <h5 class="font-mono text-xs text-earth font-bold border-b border-gray-200 pb-1 mb-2">NORTH AMERICA</h5>
+                        <ul class="space-y-1.5">
+                            <li><button onclick="openTravelMemory('usa')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">United States <span class="opacity-0 group-hover:opacity-100 transition-opacity text-xs">↗</span></button></li>
                         </ul>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -246,36 +248,24 @@
         <p>Built by Daniel Levi.</p>
     </footer>
 
-    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 opacity-0 transition-opacity duration-300">
-        <button onclick="changeProject(-1)" class="absolute left-2 md:left-8 text-white/50 hover:text-white text-5xl md:text-7xl transition-colors z-20 select-none">&#8249;</button>
-        <button onclick="changeProject(1)" class="absolute right-2 md:right-8 text-white/50 hover:text-white text-5xl md:text-7xl transition-colors z-20 select-none">&#8250;</button>
-        <button onclick="closeLightbox()" class="absolute top-4 right-4 md:top-8 md:right-8 text-white/50 hover:text-white text-3xl font-mono z-20">[CLOSE]</button>
+    <div id="lightbox" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 md:p-8 opacity-0 transition-opacity duration-300">
+        
+        <button id="btn-prev" onclick="changeProject(-1)" class="absolute left-2 md:left-8 text-white/50 hover:text-white text-5xl md:text-7xl transition-colors z-20 select-none">&#8249;</button>
+        <button id="btn-next" onclick="changeProject(1)" class="absolute right-2 md:right-8 text-white/50 hover:text-white text-5xl md:text-7xl transition-colors z-20 select-none">&#8250;</button>
+        
+        <button onclick="closeLightbox()" class="absolute top-4 right-4 md:top-8 md:right-8 text-white/50 hover:text-white text-3xl font-mono z-30">[CLOSE]</button>
 
         <div class="bg-white w-full max-w-6xl max-h-[90vh] rounded-lg overflow-hidden flex flex-col md:flex-row shadow-2xl relative z-10" onclick="event.stopPropagation()">
-            <div class="md:w-1/3 bg-white p-8 md:p-10 flex flex-col justify-center border-r border-gray-100 order-2 md:order-1 overflow-y-auto">
+            
+            <div id="lb-info-panel" class="md:w-1/3 bg-white p-8 md:p-10 flex flex-col justify-center border-r border-gray-100 order-2 md:order-1 overflow-y-auto">
                 <div id="lb-counter" class="font-mono text-xs text-earth mb-2">01 / 03</div>
                 <h3 id="lb-title" class="text-2xl md:text-3xl font-bold text-primary mb-6">Title</h3>
                 <p id="lb-desc" class="text-gray-600 text-sm md:text-base leading-relaxed mb-8">Description...</p>
                 <div id="lb-tags" class="mt-auto font-mono text-xs text-secondary bg-gray-50 p-3 rounded border border-gray-100 inline-block">#Tags</div>
             </div>
-            <div class="md:w-2/3 bg-gray-100 flex items-center justify-center order-1 md:order-2 h-[40vh] md:h-auto border-b md:border-b-0 md:border-l border-gray-200 relative">
-                <img id="lb-img" src="" alt="Project Image" class="w-full h-full object-contain p-4 md:p-8">
+            
+            <div id="lb-img-panel" class="md:w-2/3 w-full bg-gray-100 flex items-center justify-center order-1 md:order-2 h-[40vh] md:h-auto border-b md:border-b-0 md:border-l border-gray-200 relative transition-all duration-300">
+                <img id="lb-img" src="" alt="Expanded Image" class="w-full h-full object-contain p-2 md:p-6">
             </div>
         </div>
     </div>
-
-    <script src="js/travel-data.js"></script>
-    <script src="js/main.js"></script>
-    
-    <script>
-        function revealContact() {
-            document.getElementById('contact-btn').style.display = 'none';
-            document.getElementById('contact-info').classList.remove('hidden');
-        }
-        function revealAndScrollToContact() {
-            revealContact();
-            document.getElementById('contact-wrapper').scrollIntoView({behavior: 'smooth', block: 'center'});
-        }
-    </script>
-</body>
-</html>
