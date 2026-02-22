@@ -28,59 +28,105 @@ const lbDesc = document.getElementById('lb-desc');
 const lbTags = document.getElementById('lb-tags');
 const lbCounter = document.getElementById('lb-counter');
 
-// State
+// Layout Elements for dynamic shifting
+const infoPanel = document.getElementById('lb-info-panel');
+const imgPanel = document.getElementById('lb-img-panel');
+const btnPrev = document.getElementById('btn-prev');
+const btnNext = document.getElementById('btn-next');
+
+// State tracking
 let currentProjectIndex = 0;
-let isTravelMode = false;
+let currentTravelIndex = 0;
+let currentMode = 'project'; // 'project', 'travel', or 'map'
+
+// Helper to reset the Lightbox to standard split-view
+function resetLightboxLayout() {
+    infoPanel.style.display = 'flex';
+    imgPanel.classList.add('md:w-2/3');
+    imgPanel.classList.remove('w-full');
+    btnPrev.style.display = 'block';
+    btnNext.style.display = 'block';
+    lbImg.classList.remove('p-0');
+    lbImg.classList.add('p-2', 'md:p-6');
+}
 
 // 1. PROJECT Functions
 function openProject(index) {
-    isTravelMode = false;
+    currentMode = 'project';
     currentProjectIndex = index;
+    resetLightboxLayout();
     updateLightbox();
     showLightbox();
-}
-
-function changeProject(direction) {
-    if (isTravelMode) return; // Disable arrows for travel items for now (optional)
-    
-    currentProjectIndex += direction;
-    if (currentProjectIndex >= projects.length) currentProjectIndex = 0;
-    if (currentProjectIndex < 0) currentProjectIndex = projects.length - 1;
-    updateLightbox();
-}
-
-function updateLightbox() {
-    if (isTravelMode) return;
-    
-    const p = projects[currentProjectIndex];
-    lbImg.src = p.src;
-    lbTitle.innerText = p.title;
-    lbDesc.innerText = p.desc;
-    lbTags.innerText = p.tags;
-    lbTags.style.display = 'inline-block'; // Show tags for projects
-    lbCounter.innerText = `0${currentProjectIndex + 1} / 0${projects.length}`;
 }
 
 // 2. TRAVEL Functions
 function openTravelMemory(id) {
-    const trip = travelData.find(t => t.id === id);
-    if (!trip) return;
-
-    isTravelMode = true;
+    currentMode = 'travel';
+    // Find the index of the clicked country in our travelData array
+    currentTravelIndex = travelData.findIndex(t => t.id === id);
+    if (currentTravelIndex === -1) currentTravelIndex = 0; // fallback
     
-    // Populate Lightbox with Travel Data
-    lbImg.src = trip.image;
-    lbTitle.innerText = trip.title;
-    lbDesc.innerText = trip.desc;
-    
-    // Hide Project-specific elements
-    lbTags.style.display = 'none';
-    lbCounter.innerText = "TRAVEL LOG"; // Or "Trip 1 of X" if you want to code that later
-
+    resetLightboxLayout();
+    updateLightbox();
     showLightbox();
 }
 
-// 3. UTILS
+// 3. MAP Functions (Full Screen Image)
+function openMapLightbox() {
+    currentMode = 'map';
+    
+    // Hide info panel and arrows, make image full width
+    infoPanel.style.display = 'none';
+    imgPanel.classList.remove('md:w-2/3');
+    imgPanel.classList.add('w-full');
+    btnPrev.style.display = 'none';
+    btnNext.style.display = 'none';
+    
+    // Remove padding so the map uses maximum screen real estate
+    lbImg.classList.remove('p-2', 'md:p-6');
+    lbImg.classList.add('p-0');
+    
+    lbImg.src = 'dlworld.png';
+    showLightbox();
+}
+
+// 4. SHARED Functions
+function changeProject(direction) {
+    if (currentMode === 'map') return; // No cycling in map mode
+    
+    if (currentMode === 'project') {
+        currentProjectIndex += direction;
+        if (currentProjectIndex >= projects.length) currentProjectIndex = 0;
+        if (currentProjectIndex < 0) currentProjectIndex = projects.length - 1;
+    } else if (currentMode === 'travel') {
+        currentTravelIndex += direction;
+        if (currentTravelIndex >= travelData.length) currentTravelIndex = 0;
+        if (currentTravelIndex < 0) currentTravelIndex = travelData.length - 1;
+    }
+    
+    updateLightbox();
+}
+
+function updateLightbox() {
+    if (currentMode === 'project') {
+        const p = projects[currentProjectIndex];
+        lbImg.src = p.src;
+        lbTitle.innerText = p.title;
+        lbDesc.innerText = p.desc;
+        lbTags.innerText = p.tags;
+        lbTags.style.display = 'inline-block';
+        lbCounter.innerText = `0${currentProjectIndex + 1} / 0${projects.length}`;
+    } 
+    else if (currentMode === 'travel') {
+        const t = travelData[currentTravelIndex];
+        lbImg.src = t.image;
+        lbTitle.innerText = t.title;
+        lbDesc.innerText = t.desc;
+        lbTags.style.display = 'none'; // Hide tags for travel log
+        lbCounter.innerText = `LOCATION ${currentTravelIndex + 1} OF ${travelData.length}`;
+    }
+}
+
 function showLightbox() {
     lightbox.classList.remove('hidden');
     setTimeout(() => lightbox.classList.remove('opacity-0'), 10);
@@ -93,62 +139,9 @@ function closeLightbox() {
     document.body.style.overflow = 'auto';
 }
 
-// 4. MAP LOGIC
-function initMap() {
-    const mapContainer = document.getElementById('map-pins-container');
-    if(!mapContainer) return;
-
-    // Generate Pins from travel-data.js
-    travelData.forEach(trip => {
-        const pin = document.createElement('button');
-        pin.className = "absolute w-4 h-4 md:w-6 md:h-6 bg-primary rounded-full border-2 border-white shadow-lg hover:bg-earth hover:scale-125 transition-all duration-300 z-10 group";
-        // Position percentage
-        pin.style.left = `${trip.x}%`;
-        pin.style.top = `${trip.y}%`;
-        
-        // Tooltip (optional, shows title on hover)
-        pin.innerHTML = `
-            <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-dark text-white text-xs font-mono rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                ${trip.title}
-            </span>
-        `;
-        
-        // Click Event
-        pin.onclick = () => openTravelMemory(trip.id);
-        
-        mapContainer.appendChild(pin);
-    });
-}
-
-function toggleMapZoom() {
-    const container = document.getElementById('map-scroll-container');
-    const map = document.getElementById('map-img');
-    const zoomBtn = document.getElementById('zoom-btn');
-    
-    // Check if currently zoomed
-    const isZoomed = container.classList.contains('overflow-auto');
-    
-    if (isZoomed) {
-        // Zoom Out
-        container.classList.remove('overflow-auto', 'h-[600px]', 'border-y', 'border-gray-200');
-        map.classList.remove('min-w-[1500px]'); // Remove fixed large width
-        zoomBtn.innerText = "+ ZOOM MAP";
-    } else {
-        // Zoom In
-        container.classList.add('overflow-auto', 'h-[600px]', 'border-y', 'border-gray-200'); // Fixed height window to scroll inside
-        map.classList.add('min-w-[1500px]'); // Force image to be huge
-        zoomBtn.innerText = "- RESET VIEW";
-    }
-}
-
-// 5. EVENT LISTENERS
+// Keyboard Listeners
 document.addEventListener('keydown', (e) => {
     if (e.key === "Escape") closeLightbox();
-    if (!isTravelMode) {
-        if (e.key === "ArrowRight") changeProject(1);
-        if (e.key === "ArrowLeft") changeProject(-1);
-    }
+    if (e.key === "ArrowRight") changeProject(1);
+    if (e.key === "ArrowLeft") changeProject(-1);
 });
-
-// Run Map Init on Load
-window.addEventListener('DOMContentLoaded', initMap);
