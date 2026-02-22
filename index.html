@@ -192,22 +192,52 @@
             <span class="ml-4 h-px bg-gray-300 flex-grow max-w-xs"></span>
         </h3>
 
-        <div class="bg-white border border-gray-200 p-8 rounded-xl text-center shadow-sm">
-            <h4 class="text-xl font-bold text-primary mb-2">Sights and Sounds</h4>
-            <p class="text-gray-500 text-sm max-w-lg mx-auto mb-8">
-                Explore my travels by zooming in and clicking the pins.
-            </p>
+        <div class="bg-white border border-gray-200 p-8 rounded-xl shadow-sm">
+            <h4 class="text-xl font-bold text-primary mb-8 text-center md:text-left">The Journeyman Log</h4>
             
-            <div class="mb-4 flex justify-end">
-                <button id="zoom-btn" onclick="toggleMapZoom()" class="font-mono text-xs text-primary border border-primary px-3 py-1 rounded hover:bg-primary hover:text-white transition-colors">
-                    + ZOOM MAP
-                </button>
-            </div>
+            <div class="flex flex-col lg:flex-row gap-8 items-start">
+                
+                <div class="lg:w-3/5 w-full">
+                    <img src="dlworld.png" alt="World Map of Travels" class="w-full h-auto rounded border border-gray-100 shadow-sm">
+                    <p class="text-gray-400 text-xs mt-3 font-mono text-center">Map highlighting US states and international countries visited.</p>
+                </div>
 
-            <div id="map-scroll-container" class="w-full relative bg-blue-50/30 rounded border border-gray-100 transition-all duration-500">
-                <div id="map-pins-container" class="relative w-full h-auto transition-all duration-500 origin-top-left">
-                    <img id="map-img" src="dlworld.png" alt="World Map of Travels" class="w-full h-auto block">
+                <div class="lg:w-2/5 w-full bg-gray-50 border border-gray-200 rounded-lg p-6 max-h-[500px] overflow-y-auto">
+                    
+                    <div class="mb-6">
+                        <h5 class="font-mono text-sm text-earth font-bold border-b border-gray-200 pb-2 mb-3">EUROPE (WINTER 2026)</h5>
+                        <ul class="space-y-2">
+                            <li><button onclick="openTravelMemory('greece')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Thessaloniki, Greece <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('pristina')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Pristina, Kosovo <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('prizren')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Prizren, Kosovo <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('skopje')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Skopje, North Macedonia <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('sofia')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Sofia, Bulgaria <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('tirana')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Tirana, Albania <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('rome')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Rome, Italy <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('venice')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Venice, Italy <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('lyon')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Lyon, France <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('paris')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Paris, France <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('landry')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Landry, France <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('geneva')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Geneva, Switzerland <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                        </ul>
                     </div>
+
+                    <div class="mb-6">
+                        <h5 class="font-mono text-sm text-earth font-bold border-b border-gray-200 pb-2 mb-3">EUROPE (SUMMER 2013)</h5>
+                        <ul class="space-y-2">
+                            <li><button onclick="openTravelMemory('odessa')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Odessa, Ukraine <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                            <li><button onclick="openTravelMemory('kyiv')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">Kyiv, Ukraine <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h5 class="font-mono text-sm text-earth font-bold border-b border-gray-200 pb-2 mb-3">NORTH AMERICA</h5>
+                        <ul class="space-y-2">
+                            <li><button onclick="openTravelMemory('usa')" class="text-primary hover:text-earth text-sm font-semibold transition-colors text-left w-full flex justify-between group">United States <span class="opacity-0 group-hover:opacity-100 transition-opacity">↗</span></button></li>
+                        </ul>
+                    </div>
+
+                </div>
             </div>
         </div>
     </section>
