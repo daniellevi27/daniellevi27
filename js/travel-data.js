@@ -14,13 +14,13 @@ const travelData = [
         id: "pristina",
         title: "Pristina, Kosovo",
         image: "dlworld.png", // Replace with a real photo later
-        desc: "Enjoying the local pace while staying at a friend's apartment in the city. It makes for an amazing home base while traveling through the Balkans."
+        desc: "Enjoying the local pace while staying at a friend's apartment in the city. It makes for an amazing home base while traveling through the Balkans. Pristina itself is a modern, walkable city with many Ottoman and Albanian undertones, great food and friendly people!"
     },
     {
         id: "lyon",
         title: "Lyon, France",
         image: "dlworld.png", // Replace with a real photo later
-        desc: "Made it here after taking the bus from Venice. The transit was a bit of an adventure (and a lesson in logistics!), but exploring the city was well worth it."
+        desc: "Made it here after taking the bus from Venice. The transit was a bit of an adventure (and a lesson in logistics!), but exploring the city was well worth it. Lyon was my home base for a few weeks, I was able to make it to Paris, Geneva, and the french Alps from here."
     },
     {
         id: "usa",
